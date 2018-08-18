@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="name"
+            type="String" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="@dimen/repositories_item_height"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:ellipsize="end"
+            android:id="@+id/repository_name"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/repositories_item_margin_end"
+            android:layout_marginStart="@dimen/repositories_item_margin_start"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:text="@{name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Starred Github repository Starred Github repository Starred Github repository Starred Github repository Starred Github repository" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

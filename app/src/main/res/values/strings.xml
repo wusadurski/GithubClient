@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">GithubClient</string>
+    <string name="trending_github_repositories">Trending Github repositories</string>
+
+    <string name="author_format">Author: %s</string>
+    <string name="url_format">Url: %s</string>
+    <string name="description_format">Description: %s</string>
+    <string name="language_format">Language: %s</string>
+    <string name="stars_format">Stars: %s</string>
+    <string name="forks_format">Forks: %s</string>
+    <string name="current_period_stars_format">Current period stars: %s</string>
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="material_default_margin">8dp</dimen>
+    <dimen name="material_default_margin_double">16dp</dimen>
+
+    <dimen name="repositories_item_height">64dp</dimen>
+    <dimen name="repositories_item_margin_start">@dimen/material_default_margin_double</dimen>
+    <dimen name="repositories_item_margin_end">@dimen/material_default_margin_double</dimen>
+</resources>

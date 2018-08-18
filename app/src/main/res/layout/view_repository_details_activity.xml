@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="repository"
+            type="wsadurski.com.githubclient.domain.repositories.entity.Repository" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:background="?attr/colorPrimary"
+            android:id="@+id/toolbar"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_width="0dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_close_white_24dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@{repository.name}"
+            app:titleTextColor="@color/toolbar_text_color" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/material_default_margin_double"
+            android:layout_marginStart="@dimen/material_default_margin_double"
+            android:layout_marginTop="@dimen/material_default_margin"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:text="@{String.format(@string/author_format,repository.author)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:text="Author" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/material_default_margin_double"
+            android:layout_marginStart="@dimen/material_default_margin_double"
+            android:layout_marginTop="@dimen/material_default_margin"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:text="@{String.format(@string/description_format,repository.description)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/author"
+            tools:text="Some description" />
+
+        <TextView
+            android:id="@+id/url"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/material_default_margin_double"
+            android:layout_marginStart="@dimen/material_default_margin_double"
+            android:layout_marginTop="@dimen/material_default_margin"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:text="@{String.format(@string/url_format,repository.url)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            tools:text="https://www.some.url" />
+
+        <TextView
+            android:id="@+id/language"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/material_default_margin_double"
+            android:layout_marginStart="@dimen/material_default_margin_double"
+            android:layout_marginTop="@dimen/material_default_margin"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:text="@{String.format(@string/language_format,repository.language)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/url"
+            tools:text="Kotlin" />
+
+        <TextView
+            android:id="@+id/stars"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/material_default_margin_double"
+            android:layout_marginStart="@dimen/material_default_margin_double"
+            android:layout_marginTop="@dimen/material_default_margin"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:text="@{String.format(@string/stars_format,repository.stars)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/language"
+            tools:text="5" />
+
+        <TextView
+            android:id="@+id/forks"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/material_default_margin_double"
+            android:layout_marginStart="@dimen/material_default_margin_double"
+            android:layout_marginTop="@dimen/material_default_margin"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:text="@{String.format(@string/forks_format,repository.forks)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stars"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/current_period_stars"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/material_default_margin_double"
+            android:layout_marginStart="@dimen/material_default_margin_double"
+            android:layout_marginTop="@dimen/material_default_margin"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:text="@{String.format(@string/current_period_stars_format,repository.currentPeriodStars)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forks"
+            tools:text="20" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
