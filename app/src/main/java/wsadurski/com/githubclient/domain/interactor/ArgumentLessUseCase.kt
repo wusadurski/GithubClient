@@ -17,10 +17,10 @@
 package wsadurski.com.githubclient.domain.interactor
 
 import arrow.core.Either
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import wsadurski.com.githubclient.domain.error.ErrorThrowableWrapper
 
 /**
@@ -39,8 +39,8 @@ abstract class ArgumentLessUseCase<out Type> where Type : Any {
 
     abstract suspend fun run(): Either<ErrorThrowableWrapper, Type>
 
-    fun execute(onResult: (Either<ErrorThrowableWrapper, Type>) -> Unit) {
-        val job = async(CommonPool) { run() }
-        launch(UI) { onResult.invoke(job.await()) }
+    operator fun invoke(onResult: (Either<ErrorThrowableWrapper, Type>) -> Unit) {
+        val job = GlobalScope.async(Dispatchers.IO) { run() }
+        GlobalScope.launch(Dispatchers.Main) { onResult(job.await()) }
     }
 }

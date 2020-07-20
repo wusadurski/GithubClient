@@ -1,7 +1,7 @@
 package wsadurski.com.githubclient.presentation.details
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.view_repository_details_activity.toolbar
 import wsadurski.com.githubclient.databinding.ViewRepositoryDetailsActivityBinding
 import wsadurski.com.githubclient.domain.repositories.entity.Repository

@@ -12,6 +12,10 @@ class RepositoriesRepositoryImpl(
 ) : RepositoriesRepository, SafeRepository() {
 
     override fun getTrendingRepositories(): Either<ErrorThrowableWrapper, List<Repository>> {
-        return executeSafely(service.getTrendingRepositories(), { it.map { it.toRepository() } }, emptyList())
+        return executeSafely(
+            service.getTrendingRepositories(),
+            { response -> response.map { it.toRepository() } },
+            emptyList()
+        )
     }
 }

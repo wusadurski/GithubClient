@@ -1,14 +1,11 @@
 package wsadurski.com.githubclient.presentation.repositories
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.view_repositories_activity.repositories_recycler
 import wsadurski.com.githubclient.R
@@ -30,8 +27,12 @@ class RepositoriesActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        repositories_recycler.layoutManager = LinearLayoutManager(this)
-        val divider = DividerItemDecoration(this, RecyclerView.VERTICAL)
+        repositories_recycler.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(this)
+        val divider = androidx.recyclerview.widget.DividerItemDecoration(
+            this,
+            androidx.recyclerview.widget.RecyclerView.VERTICAL
+        )
         ContextCompat.getDrawable(this, R.drawable.divider_grey)?.let {
             divider.setDrawable(it)
         }

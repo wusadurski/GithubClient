@@ -1,7 +1,7 @@
 package wsadurski.com.githubclient.presentation.repositories.viewmodel
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import android.content.Context
 import wsadurski.com.githubclient.GithubClientApplication
 import wsadurski.com.githubclient.domain.repositories.interactor.GetTrendingRepositories
