@@ -4,6 +4,7 @@ import java.io.Serializable
 
 data class Repository(
     val author: String,
+    val avatar: String,
     val name: String,
     val url: String,
     val description: String,

@@ -15,5 +15,5 @@ data class TrendingRepositoriesResponseItem(
     val stars: Int,
     val url: String
 ) {
-    fun toRepository() = Repository(author, name, url, description, language, stars, forks, currentPeriodStars)
+    fun toRepository() = Repository(author, avatar, name, url, description, language, stars, forks, currentPeriodStars)
 }

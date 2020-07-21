@@ -1,22 +1,22 @@
 package wsadurski.com.githubclient.presentation.repositories
 
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import wsadurski.com.githubclient.BR
+import com.bumptech.glide.Glide
 import wsadurski.com.githubclient.databinding.ViewItemRepositoryBinding
 import wsadurski.com.githubclient.domain.repositories.entity.Repository
 
 typealias ItemClickListener = (Repository) -> Unit
 
-class RepositoriesAdapter(private val repositoryItems: List<Repository>, private val listener: ItemClickListener) :
+class RepositoriesAdapter(
+    private val repositoryItems: List<Repository>,
+    private val listener: ItemClickListener
+) :
     androidx.recyclerview.widget.RecyclerView.Adapter<RepositoriesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ViewItemRepositoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding.root)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -27,16 +27,15 @@ class RepositoriesAdapter(private val repositoryItems: List<Repository>, private
         return repositoryItems.size
     }
 
-    inner class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(val binding: ViewItemRepositoryBinding) :
+        androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root) {
 
         var repositoryItem: Repository? = null
-        val binding: ViewDataBinding? = DataBindingUtil.bind(itemView)
 
         fun populateItem(item: Repository) {
             repositoryItem = item
-            repositoryItem?.let {
-                binding?.setVariable(BR.name, it.name)
-            }
+            binding.nameTextview.text = item.name
+            Glide.with(binding.avatarImageview).load(item.avatar).into(binding.avatarImageview)
         }
 
         init {
