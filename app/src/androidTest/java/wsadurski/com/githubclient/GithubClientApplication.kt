@@ -2,7 +2,6 @@ package wsadurski.com.githubclient
 
 import android.app.Application
 import wsadurski.com.githubclient.data.di.DataModule
-import wsadurski.com.githubclient.data.repositories.di.RepositoriesModule
 import wsadurski.com.githubclient.di.AppComponent
 import wsadurski.com.githubclient.di.DaggerAppComponent
 
@@ -15,7 +14,7 @@ class GithubClientApplication : Application() {
         appComponent = DaggerAppComponent
             .builder()
             .dataModule(DataModule())
-            .repositoriesModule(RepositoriesModule())
+            .repositoriesModule(MockRepositoriesModule(this))
             .build()
     }
 }

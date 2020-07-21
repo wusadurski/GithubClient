@@ -10,7 +10,7 @@ import wsadurski.com.githubclient.domain.repositories.repository.RepositoriesRep
 import javax.inject.Singleton
 
 @Module
-class RepositoriesModule {
+open class RepositoriesModule {
 
     @Provides
     @Singleton
@@ -20,7 +20,7 @@ class RepositoriesModule {
 
     @Provides
     @Singleton
-    fun provideRepositoriesService(retrofit: Retrofit): RepositoriesService {
+    open fun provideRepositoriesService(retrofit: Retrofit): RepositoriesService {
         return retrofit.create(RepositoriesService::class.java)
     }
 
